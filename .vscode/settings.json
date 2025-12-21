@@ -23,7 +23,10 @@
         "-outdir=out",
         "-lualatex",
         "%DOC%"
-      ]
+      ],
+      "env": {
+      "TEXINPUTS": ".;./tex-common//:"
+    }
     }
   ],
   "latex-workshop.latex.recipes": [
