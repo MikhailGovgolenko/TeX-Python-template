@@ -1,0 +1,22 @@
+{
+  "name": "LuaTeX + Python",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    }
+  },
+  "postCreateCommand": [
+    "sudo apt-get update",
+    "sudo apt-get install -y texlive-luatex texlive-latex-extra texlive-lang-cyrillic texlive-fonts-recommended",
+    "pip install --user jupyter matplotlib numpy pandas"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "james-yu.latex-workshop@10.5.0",
+        "ms-toolsai.jupyter"
+      ]
+    }
+  }
+}

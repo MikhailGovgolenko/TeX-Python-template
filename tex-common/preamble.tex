@@ -1,0 +1,123 @@
+% !TEX program = lualatex
+\documentclass[a4paper,12pt]{article}
+
+% ---------------------------
+% Разметка страницы
+% ---------------------------
+\usepackage[a4paper,
+    left=2cm, right=2cm,
+    top=2cm, bottom=2cm]{geometry}
+
+% ---------------------------
+% Языки и шрифты
+% ---------------------------
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
+
+\setmainfont{CMU Serif}
+\setsansfont{CMU Sans Serif}
+\setmonofont{CMU Typewriter Text}
+
+% ---------------------------
+% Формат даты
+% ---------------------------
+\renewcommand{\today}{\number\day~\lowercase{\selectlanguage{russian}\monthname[\month]}~\number\year~г.}
+
+% ---------------------------
+% Математика
+% ---------------------------
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+
+% Для \mathcal и \mathbb как в обычном LaTeX
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+\let\mathbb\relax
+\DeclareMathAlphabet{\mathbb}{U}{msb}{m}{n}
+
+% ---------------------------
+% Эпиграф
+% ---------------------------
+\usepackage{epigraph}
+\usepackage{ragged2e}
+\renewcommand{\textflush}{flushleft}
+\renewcommand{\sourceflush}{flushright}
+
+% ---------------------------
+% Ссылки и структура
+% ---------------------------
+\usepackage[
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+]{hyperref}
+
+\usepackage{perpage} % нумерация сносок по каждой странице
+\MakePerPage{footnote}
+
+\usepackage{titlesec} % оформление заголовков
+\titleformat{\section}
+  {\normalfont\Large\bfseries\filcenter}
+  {\thesection}{1em}{}
+
+\usepackage{enumitem} % списки
+
+% ---------------------------
+% Базовые пакеты
+% ---------------------------
+\usepackage{amsmath, indentfirst, float, array, multirow, booktabs, caption, manfnt}
+
+% ---------------------------
+% Колонтитулы
+% ---------------------------
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\headheight}{15pt}
+\fancyhead[L]{}
+\fancyhead[C]{\nouppercase{\leftmark}}
+\fancyhead[R]{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyfoot{}   % очищает футер
+\renewcommand{\thepage}{}   % отключает номер страницы
+
+% ---------------------------
+% TikZ, схемы, графики
+% ---------------------------
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage[european,american inductors]{circuitikz}
+\usepackage{pgfplotstable}
+% при необходимости можно подключить библиотеки TikZ, например:
+% \usetikzlibrary{positioning, arrows.meta, calc}
+
+% ---------------------------
+% Единицы СИ
+% ---------------------------
+\usepackage{siunitx}
+\InputIfFileExists{siunitx.cfg}{}{}
+
+% ---------------------------
+% Изображения и химия
+% ---------------------------
+\usepackage{subcaption} % современный аналог subfig
+\usepackage[version=4]{mhchem}
+
+% ---------------------------
+% Цвета, комментарии и типографика
+% ---------------------------
+\usepackage{comment, bookmark, microtype}
+\sloppy
+\emergencystretch=1em
+
+% ---------------------------
+% Настройка плавающих фигур
+% ---------------------------
+\def\fps@figure{htbp}
+
+% ---------------------------
+% Таблицы
+% ---------------------------
+\usepackage{csvsimple} % импорт CSV
