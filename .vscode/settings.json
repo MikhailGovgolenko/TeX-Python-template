@@ -23,10 +23,7 @@
         "-outdir=out",
         "-lualatex",
         "%DOC%"
-      ],
-      "env": {
-      "TEXINPUTS": ".;./tex-common//:"
-    }
+      ]
     }
   ],
   "latex-workshop.latex.recipes": [
@@ -73,13 +70,13 @@
     "*.pdf": "latex-workshop-pdf-hook",
     "*.pptx": "default",
     "*.docx": "cweijan.officeViewer",
-    "*.csv": "vscode-office.csv"
+    "*.csv": "xlsxViewer.csv"
   },
   "python.createEnvironment.trigger": "off",
   "git.autofetch": true,
   "git.enableSmartCommit": true,
   "git.confirmSync": false,
-  "workbench.colorTheme": "Default Dark Modern",
+  "vscode-office.editorTheme": "Dracula",
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -787,6 +784,14 @@
     {
       "language": "latex",
       "substitutions": [
+        {
+          "ugly": "\\\\varphi",
+          "pretty": "φ"
+        },
+        {
+          "ugly": "\\\\varepsilon",
+          "pretty": "ε"
+        },
         {
           "ugly": "\\\\circ",
           "pretty": "°",
@@ -1503,5 +1508,6 @@
       ]
     }
   ],
-  "jupyter.askForKernelRestart": false
+  "jupyter.askForKernelRestart": false,
+  "terminal.integrated.enableMultiLinePasteWarning": "never"
 }
